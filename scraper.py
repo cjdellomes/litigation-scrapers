@@ -15,3 +15,8 @@ class Scraper:
             url = Scraper.archive_base_url + str(year) + '.shtml'
         response = requests.get(url)
         return response
+
+    def get_litigation_page(link:str):
+        url = Scraper.sec_base_url + link
+        response = requests.get(url)
+        return response

@@ -23,5 +23,25 @@ class TestScraper(unittest.TestCase):
         self.assertEqual(response.status_code, expected_response_code)
         self.assertEqual(response.url, expected_url)
 
+    def test_get_litigation_page_txt_file(self):
+        expected_response_code = 200
+        link = '/litigation/litreleases/lr14769.txt'
+        expected_url = 'https://www.sec.gov/litigation/litreleases/lr14769.txt'
+
+        response = Scraper.get_litigation_page(link)
+
+        self.assertEqual(response.status_code, expected_response_code)
+        self.assertEqual(response.url, expected_url)
+
+    def test_get_litigation_page_htm_file(self):
+        expected_response_code = 200
+        link = '/litigation/litreleases/2006/lr19955.htm'
+        expected_url = 'https://www.sec.gov/litigation/litreleases/2006/lr19955.htm'
+
+        response = Scraper.get_litigation_page(link)
+
+        self.assertEqual(response.status_code, expected_response_code)
+        self.assertEqual(response.url, expected_url)
+
 if __name__ == '__main__':
     unittest.main()
