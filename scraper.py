@@ -16,6 +16,7 @@ class Scraper:
         response = requests.get(url)
         return response
 
+    @staticmethod
     def get_litigation_page(link:str):
         url = Scraper.sec_base_url + link
         response = requests.get(url)
