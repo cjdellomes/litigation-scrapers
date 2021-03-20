@@ -17,7 +17,7 @@ class TestScraper(unittest.TestCase):
 
     def test_get_enforcement_action_filtered_page(self):
         expected_response_code = 200
-        expected_url = 'https://www.consumerfinance.gov/enforcement/actions/?page=1&categories=administrative-proceeding&statuses=expired-terminated-dismissed&statuses=post-order-post-judgment&from_date=2013-01-14&to_date=2016-01-14'
+        expected_url = 'https://www.consumerfinance.gov/enforcement/actions/?&page=1&categories=administrative-proceeding&statuses=expired-terminated-dismissed&statuses=post-order-post-judgment&from_date=2013-01-14&to_date=2016-01-14'
 
         categories = ['administrative-proceeding']
         statuses = ['expired-terminated-dismissed', 'post-order-post-judgment']
@@ -33,7 +33,7 @@ class TestScraper(unittest.TestCase):
 
     def test_get_enforcement_action_filtered_page_some_filters_missing(self):
         expected_response_code = 200
-        expected_url = 'https://www.consumerfinance.gov/enforcement/actions/?page=1&categories=administrative-proceeding&statuses=expired-terminated-dismissed'
+        expected_url = 'https://www.consumerfinance.gov/enforcement/actions/?&page=1&categories=administrative-proceeding&statuses=expired-terminated-dismissed'
 
         categories = ['administrative-proceeding']
         statuses = ['expired-terminated-dismissed']
