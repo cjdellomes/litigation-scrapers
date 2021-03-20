@@ -59,5 +59,17 @@ class TestScraper(unittest.TestCase):
         self.assertEqual(response.status_code, expected_response_code)
         self.assertEqual(response.url, expected_url)
 
+    def test_get_press_release_page(self):
+        expected_response_code = 200
+        expected_subdirectory = '/cfpb-orders-american-express-to-pay-59-5-million-for-illegal-credit-card-practices/'
+        expected_url = 'https://www.consumerfinance.gov/about-us/newsroom/cfpb-orders-american-express-to-pay-59-5-million-for-illegal-credit-card-practices/'
+
+        scraper = Scraper(None, None, None, None)
+
+        response = scraper.get_press_release_page(expected_subdirectory)
+
+        self.assertEqual(response.status_code, expected_response_code)
+        self.assertEqual(response.url, expected_url)
+
 if __name__ == '__main__':
     unittest.main()
