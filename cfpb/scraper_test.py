@@ -47,5 +47,17 @@ class TestScraper(unittest.TestCase):
         self.assertEqual(response.status_code, expected_response_code)
         self.assertEqual(response.url, expected_url)
 
+    def test_get_enforcement_action_detail_page(self):
+        expected_response_code = 200
+        expected_subdirectory = '/american-express-bank-fsb-2/'
+        expected_url = 'https://www.consumerfinance.gov/enforcement/actions/american-express-bank-fsb-2/'
+
+        scraper = Scraper(None, None, None, None)
+
+        response = scraper.get_enforcement_action_detail_page(expected_subdirectory)
+
+        self.assertEqual(response.status_code, expected_response_code)
+        self.assertEqual(response.url, expected_url)
+
 if __name__ == '__main__':
     unittest.main()

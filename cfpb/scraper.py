@@ -29,3 +29,8 @@ class Scraper:
             to_date=self.to_date)
 
         return requests.get(url_builder.build())
+
+    def get_enforcement_action_detail_page(self, page_subdirectory: str):
+        url_builder = urlbuilder.UrlBuilder(base_url=self.enforcement_actions_url, subdirectory=page_subdirectory)
+
+        return requests.get(url_builder.build())
