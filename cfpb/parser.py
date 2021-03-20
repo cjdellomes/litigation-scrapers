@@ -14,3 +14,12 @@ class Parser:
                 litigation_links.append(a['href'])
         
         return litigation_links
+
+    def is_last_enforcement_action_filter_page(html:str):
+        soup = BeautifulSoup(html, 'html.parser')
+
+        for a in soup.find_all('a', class_='m-pagination_btn-next'):
+            if 'a-btn__disabled' in a['class']:
+                return True
+        
+        return False
