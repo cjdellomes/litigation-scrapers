@@ -8,7 +8,7 @@ class TestScraper(unittest.TestCase):
         expected_response_code = 200
         expected_url = 'https://www.consumerfinance.gov/enforcement/actions/'
 
-        scraper = Scraper(None, None, None, None)
+        scraper = Scraper()
 
         response = scraper.get_enforcement_action_filter_page()
 
@@ -52,7 +52,7 @@ class TestScraper(unittest.TestCase):
         expected_subdirectory = '/american-express-bank-fsb-2/'
         expected_url = 'https://www.consumerfinance.gov/enforcement/actions/american-express-bank-fsb-2/'
 
-        scraper = Scraper(None, None, None, None)
+        scraper = Scraper()
 
         response = scraper.get_enforcement_action_detail_page(expected_subdirectory)
 
@@ -64,7 +64,7 @@ class TestScraper(unittest.TestCase):
         expected_subdirectory = '/cfpb-orders-american-express-to-pay-59-5-million-for-illegal-credit-card-practices/'
         expected_url = 'https://www.consumerfinance.gov/about-us/newsroom/cfpb-orders-american-express-to-pay-59-5-million-for-illegal-credit-card-practices/'
 
-        scraper = Scraper(None, None, None, None)
+        scraper = Scraper()
 
         response = scraper.get_press_release_page(expected_subdirectory)
 

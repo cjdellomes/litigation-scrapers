@@ -8,7 +8,11 @@ class Scraper:
     enforcement_actions_url = cfpb_base_url + '/enforcement/actions'
     press_releases_url = cfpb_base_url + '/about-us/newsroom'
 
-    def __init__(self, categories: List[str], statuses: List[str], from_date: date, to_date: date):
+    def __init__(self,
+                 categories: List[str]=[],
+                 statuses: List[str]=[],
+                 from_date: date=None,
+                 to_date: date=None):
         self.categories = categories
         self.statuses = statuses
         self.from_date = from_date
@@ -19,7 +23,7 @@ class Scraper:
 
         return requests.get(url_builder.build())
 
-    def get_enforcement_action_filtered_page(self, page_number: int):
+    def get_enforcement_action_filtered_page(self, page_number: int=1):
         url_builder = urlbuilder.EnforcementActionFilterUrlBuilder(
             base_url=self.enforcement_actions_url,
             page_number=page_number,
@@ -31,11 +35,13 @@ class Scraper:
         return requests.get(url_builder.build())
 
     def get_enforcement_action_detail_page(self, page_subdirectory: str):
-        url_builder = urlbuilder.UrlBuilder(base_url=self.enforcement_actions_url, subdirectory=page_subdirectory)
+        url_builder = urlbuilder.UrlBuilder(base_url=self.enforcement_actions_url,
+                                            subdirectory=page_subdirectory)
 
         return requests.get(url_builder.build())
 
     def get_press_release_page(self, page_subdirectory: str):
-        url_builder = urlbuilder.UrlBuilder(base_url=self.press_releases_url, subdirectory=page_subdirectory)
+        url_builder = urlbuilder.UrlBuilder(base_url=self.press_releases_url,
+                                            subdirectory=page_subdirectory)
 
         return requests.get(url_builder.build())
