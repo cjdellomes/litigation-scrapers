@@ -14,7 +14,7 @@ class Scraper:
         self.from_date = from_date
         self.to_date = to_date
 
-    def get_enforcement_action_search_page(self):
+    def get_enforcement_action_filter_page(self):
         url_builder = urlbuilder.UrlBuilder(base_url=self.enforcement_actions_url)
 
         return requests.get(url_builder.build())
